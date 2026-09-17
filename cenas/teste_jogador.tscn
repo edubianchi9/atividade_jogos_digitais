@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d10v2m1t8huvq"]
+
+[ext_resource type="PackedScene" uid="uid://daeakggbdkhyf" path="res://cenas/jogador.tscn" id="1_g225f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogq8d"]
+size = Vector2(1152, 80)
+
+[node name="TesteJogador" type="Node2D" unique_id=610936703]
+
+[node name="Jogador" parent="." unique_id=1593921102 instance=ExtResource("1_g225f")]
+position = Vector2(150, 400)
+
+[node name="ChaoTeste" type="StaticBody2D" parent="." unique_id=599082575]
+position = Vector2(576, 590)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaoTeste" unique_id=1574634617]
+shape = SubResource("RectangleShape2D_ogq8d")
+
+[node name="Polygon2D" type="Polygon2D" parent="ChaoTeste" unique_id=1086164325]
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-576, -40, 576, -40, 576, 40, -576, 40)

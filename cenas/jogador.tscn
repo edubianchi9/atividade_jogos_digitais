@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://daeakggbdkhyf"]
+
+[ext_resource type="Script" uid="uid://vgg7xb47idqd" path="res://scripts/jogador.gd" id="1_p7t4r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogq8d"]
+size = Vector2(24, 32)
+
+[node name="Jogador" type="CharacterBody2D" unique_id=1593921102]
+z_index = 1
+script = ExtResource("1_p7t4r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=663156058]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_ogq8d")
+
+[node name="Visual" type="Polygon2D" parent="." unique_id=1344380101]
+color = Color(0.9998533, 1, 0.0118794395, 1)
+polygon = PackedVector2Array(-12, -32, 12, -32, 12, 0, -12, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1463744215]
+position = Vector2(0, -80)
+zoom = Vector2(2, 2)
