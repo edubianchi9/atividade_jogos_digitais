@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var velocidade: float = 280.0
 @export var forca_pulo: float = 540.0
 @export var gravidade: float = 1500.0
+@export var altura_queda: float = 1000.0
 
 var posicao_inicial: Vector2
 var tempo_animacao: float = 0.0
@@ -33,14 +34,22 @@ func _physics_process(delta: float) -> void:
 
 	atualizar_animacao(delta, direcao)
 
-	if global_position.y > 1000.0:
-		global_position = posicao_inicial
-		velocity = Vector2.ZERO
+	if global_position.y > altura_queda or Input.is_action_just_pressed("reiniciar"):
+		reiniciar()
 
-		var camera = get_node_or_null("Camera2D")
 
-		if camera != null:
-			camera.reset_smoothing()
+func definir_inicio(posicao: Vector2) -> void:
+	posicao_inicial = posicao
+	reiniciar()
+
+
+func reiniciar() -> void:
+	global_position = posicao_inicial
+	velocity = Vector2.ZERO
+	var camera: Camera2D = get_node_or_null("Camera2D")
+	if camera != null:
+		camera.reset_smoothing()
+		camera.force_update_scroll()
 
 
 func atualizar_animacao(

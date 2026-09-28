@@ -1,0 +1,137 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://scripts/fase.gd" id="1_s503f"]
+[ext_resource type="PackedScene" path="res://cenas/jogador.tscn" id="2_x61s1"]
+[ext_resource type="Script" path="res://scripts/jogador.gd" id="3_knv51"]
+[ext_resource type="TileSet" path="res://tilesets/terreno_inverno.tres" id="4_e2ws7"]
+[ext_resource type="PackedScene" path="res://cenas/fim_fase.tscn" id="5_ci06v"]
+[ext_resource type="Script" path="res://scripts/fim_fase.gd" id="6_ej2ey"]
+[ext_resource type="PackedScene" path="res://cenas/cristal_secreto.tscn" id="7_863x4"]
+[ext_resource type="Script" path="res://scripts/cristal_secreto.gd" id="8_prm7h"]
+
+[node name="SalaTesouro" type="Node2D" unique_id=1197148092]
+script = ExtResource("1_s503f")
+nome_fase = "03  /  REFÚGIO DE CRISTAL"
+cor_ceu_base = Color(0.14901961, 0.21176471, 0.30588236, 1)
+cor_ceu_alto = Color(0.14901961, 0.21176471, 0.30588236, 1)
+
+[node name="Jogador" type="CharacterBody2D" parent="." unique_id=1593921102 instance=ExtResource("2_x61s1")]
+z_index = 1
+position = Vector2(96, 384)
+collision_layer = 2
+script = ExtResource("3_knv51")
+
+[node name="Terreno" type="TileMapLayer" parent="." unique_id=202018424]
+tile_map_data = PackedByteArray("AAAAABgAAQABAAMAAAAAABkAAQABAAQAAAAAABoAAQABAAQAAAABABgAAQACAAMAAAABABkAAQACAAQAAAABABoAAQACAAQAAAACABgAAQACAAMAAAACABkAAQACAAQAAAACABoAAQACAAQAAAADABgAAQACAAMAAAADABkAAQACAAQAAAADABoAAQACAAQAAAAEABgAAQACAAMAAAAEABkAAQACAAQAAAAEABoAAQACAAQAAAAFABgAAQACAAMAAAAFABkAAQACAAQAAAAFABoAAQACAAQAAAAGABgAAQACAAMAAAAGABkAAQACAAQAAAAGABoAAQACAAQAAAAHABgAAQACAAMAAAAHABkAAQACAAQAAAAHABoAAQACAAQAAAAIABgAAQACAAMAAAAIABkAAQACAAQAAAAIABoAAQACAAQAAAAJABgAAQACAAMAAAAJABkAAQACAAQAAAAJABoAAQACAAQAAAAKABgAAQACAAMAAAAKABkAAQACAAQAAAAKABoAAQACAAQAAAALABgAAQACAAMAAAALABkAAQACAAQAAAALABoAAQACAAQAAAAMABgAAQACAAMAAAAMABkAAQACAAQAAAAMABoAAQACAAQAAAANABgAAQACAAMAAAANABkAAQACAAQAAAANABoAAQACAAQAAAAOABgAAQACAAMAAAAOABkAAQACAAQAAAAOABoAAQACAAQAAAAPABgAAQACAAMAAAAPABkAAQACAAQAAAAPABoAAQACAAQAAAAQABgAAQACAAMAAAAQABkAAQACAAQAAAAQABoAAQACAAQAAAARABgAAQACAAMAAAARABkAAQACAAQAAAARABoAAQACAAQAAAASABgAAQACAAMAAAASABkAAQACAAQAAAASABoAAQACAAQAAAATABgAAQACAAMAAAATABkAAQACAAQAAAATABoAAQACAAQAAAAUABgAAQACAAMAAAAUABkAAQACAAQAAAAUABoAAQACAAQAAAAVABgAAQACAAMAAAAVABkAAQACAAQAAAAVABoAAQACAAQAAAAWABgAAQACAAMAAAAWABkAAQACAAQAAAAWABoAAQACAAQAAAAXABgAAQACAAMAAAAXABkAAQACAAQAAAAXABoAAQACAAQAAAAYABgAAQACAAMAAAAYABkAAQACAAQAAAAYABoAAQACAAQAAAAZABgAAQACAAMAAAAZABkAAQACAAQAAAAZABoAAQACAAQAAAAaABgAAQACAAMAAAAaABkAAQACAAQAAAAaABoAAQACAAQAAAAbABgAAQACAAMAAAAbABkAAQACAAQAAAAbABoAAQACAAQAAAAcABgAAQACAAMAAAAcABkAAQACAAQAAAAcABoAAQACAAQAAAAdABgAAQACAAMAAAAdABkAAQACAAQAAAAdABoAAQACAAQAAAAeABgAAQACAAMAAAAeABkAAQACAAQAAAAeABoAAQACAAQAAAAfABgAAQACAAMAAAAfABkAAQACAAQAAAAfABoAAQACAAQAAAAgABgAAQACAAMAAAAgABkAAQACAAQAAAAgABoAAQACAAQAAAAhABgAAQACAAMAAAAhABkAAQACAAQAAAAhABoAAQACAAQAAAAiABgAAQACAAMAAAAiABkAAQACAAQAAAAiABoAAQACAAQAAAAjABgAAQACAAMAAAAjABkAAQACAAQAAAAjABoAAQACAAQAAAAkABgAAQACAAMAAAAkABkAAQACAAQAAAAkABoAAQACAAQAAAAlABgAAQACAAMAAAAlABkAAQACAAQAAAAlABoAAQACAAQAAAAmABgAAQACAAMAAAAmABkAAQACAAQAAAAmABoAAQACAAQAAAAnABgAAQAHAAMAAAAnABkAAQAHAAQAAAAnABoAAQAHAAQAAAAAAAQAAQABAAMAAAAAAAUAAQABAAQAAAAAAAYAAQABAAQAAAAAAAcAAQABAAQAAAAAAAgAAQABAAQAAAAAAAkAAQABAAQAAAAAAAoAAQABAAQAAAAAAAsAAQABAAQAAAAAAAwAAQABAAQAAAAAAA0AAQABAAQAAAAAAA4AAQABAAQAAAAAAA8AAQABAAQAAAAAABAAAQABAAQAAAAAABEAAQABAAQAAAAAABIAAQABAAQAAAAAABMAAQABAAQAAAAAABQAAQABAAQAAAAAABUAAQABAAQAAAAAABYAAQABAAQAAAAAABcAAQABAAQAAAABAAQAAQACAAMAAAABAAUAAQAHAAQAAAABAAYAAQAHAAQAAAABAAcAAQAHAAQAAAABAAgAAQAHAAQAAAABAAkAAQAHAAQAAAABAAoAAQAHAAQAAAABAAsAAQAHAAQAAAABAAwAAQAHAAQAAAABAA0AAQAHAAQAAAABAA4AAQAHAAQAAAABAA8AAQAHAAQAAAABABAAAQAHAAQAAAABABEAAQAHAAQAAAABABIAAQAHAAQAAAABABMAAQAHAAQAAAABABQAAQAHAAQAAAABABUAAQAHAAQAAAABABYAAQAHAAQAAAABABcAAQAHAAQAAAAmAAQAAQACAAMAAAAmAAUAAQABAAQAAAAmAAYAAQABAAQAAAAmAAcAAQABAAQAAAAmAAgAAQABAAQAAAAmAAkAAQABAAQAAAAmAAoAAQABAAQAAAAmAAsAAQABAAQAAAAmAAwAAQABAAQAAAAmAA0AAQABAAQAAAAmAA4AAQABAAQAAAAmAA8AAQABAAQAAAAmABAAAQABAAQAAAAmABEAAQABAAQAAAAmABIAAQABAAQAAAAmABMAAQABAAQAAAAmABQAAQABAAQAAAAmABUAAQABAAQAAAAmABYAAQABAAQAAAAmABcAAQABAAQAAAAnAAQAAQAHAAMAAAAnAAUAAQAHAAQAAAAnAAYAAQAHAAQAAAAnAAcAAQAHAAQAAAAnAAgAAQAHAAQAAAAnAAkAAQAHAAQAAAAnAAoAAQAHAAQAAAAnAAsAAQAHAAQAAAAnAAwAAQAHAAQAAAAnAA0AAQAHAAQAAAAnAA4AAQAHAAQAAAAnAA8AAQAHAAQAAAAnABAAAQAHAAQAAAAnABEAAQAHAAQAAAAnABIAAQAHAAQAAAAnABMAAQAHAAQAAAAnABQAAQAHAAQAAAAnABUAAQAHAAQAAAAnABYAAQAHAAQAAAAnABcAAQAHAAQAAAACAAQAAQACAAMAAAADAAQAAQACAAMAAAAEAAQAAQACAAMAAAAFAAQAAQACAAMAAAAGAAQAAQACAAMAAAAHAAQAAQACAAMAAAAIAAQAAQACAAMAAAAJAAQAAQACAAMAAAAKAAQAAQACAAMAAAALAAQAAQACAAMAAAAMAAQAAQACAAMAAAANAAQAAQACAAMAAAAOAAQAAQACAAMAAAAPAAQAAQACAAMAAAAQAAQAAQACAAMAAAARAAQAAQACAAMAAAASAAQAAQACAAMAAAATAAQAAQACAAMAAAAUAAQAAQACAAMAAAAVAAQAAQACAAMAAAAWAAQAAQACAAMAAAAXAAQAAQACAAMAAAAYAAQAAQACAAMAAAAZAAQAAQACAAMAAAAaAAQAAQACAAMAAAAbAAQAAQACAAMAAAAcAAQAAQACAAMAAAAdAAQAAQACAAMAAAAeAAQAAQACAAMAAAAfAAQAAQACAAMAAAAgAAQAAQACAAMAAAAhAAQAAQACAAMAAAAiAAQAAQACAAMAAAAjAAQAAQACAAMAAAAkAAQAAQACAAMAAAAlAAQAAQACAAMAAAA=")
+tile_set = ExtResource("4_e2ws7")
+
+[node name="ParedeDoFundo" type="Polygon2D" parent="." unique_id=2012706593]
+z_index = -2
+color = Color(0.14901961, 0.21176471, 0.30588236, 1)
+polygon = PackedVector2Array(0, 64, 640, 64, 640, 432, 0, 432)
+
+[node name="CristalDecorativo1" type="Polygon2D" parent="." unique_id=1830601537]
+z_index = -1
+position = Vector2(180, 384)
+color = Color(0.22352941, 0.4862745, 0.5921569, 1)
+polygon = PackedVector2Array(-15, 0, -20, -36, -4, -72, 14, -30, 13, 0)
+
+[node name="CristalDecorativo2" type="Polygon2D" parent="." unique_id=596798300]
+z_index = -1
+position = Vector2(248, 384)
+color = Color(0.22352941, 0.4862745, 0.5921569, 1)
+polygon = PackedVector2Array(-15, 0, -20, -36, -4, -80, 14, -30, 13, 0)
+
+[node name="CristalDecorativo3" type="Polygon2D" parent="." unique_id=556286146]
+z_index = -1
+position = Vector2(316, 384)
+color = Color(0.22352941, 0.4862745, 0.5921569, 1)
+polygon = PackedVector2Array(-15, 0, -20, -36, -4, -88, 14, -30, 13, 0)
+
+[node name="CristalDecorativo4" type="Polygon2D" parent="." unique_id=1350290081]
+z_index = -1
+position = Vector2(384, 384)
+color = Color(0.22352941, 0.4862745, 0.5921569, 1)
+polygon = PackedVector2Array(-15, 0, -20, -36, -4, -96, 14, -30, 13, 0)
+
+[node name="CristalDecorativo5" type="Polygon2D" parent="." unique_id=1703588922]
+z_index = -1
+position = Vector2(452, 384)
+color = Color(0.22352941, 0.4862745, 0.5921569, 1)
+polygon = PackedVector2Array(-15, 0, -20, -36, -4, -104, 14, -30, 13, 0)
+
+[node name="Inicio" type="Marker2D" parent="." unique_id=559719314]
+position = Vector2(96, 384)
+
+[node name="Ceu" type="CanvasLayer" parent="." unique_id=709153694]
+layer = -101
+
+[node name="Cor" type="ColorRect" parent="Ceu" unique_id=1751839024]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.14901961, 0.21176471, 0.30588236, 1)
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=833866750]
+
+[node name="Titulo" type="Label" parent="Interface" unique_id=2085352577]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 24.0
+offset_bottom = 16.0
+theme_override_colors/font_outline_color = Color(0.10980392, 0.16078432, 0.23529412, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "03  /  REFÚGIO DE CRISTAL"
+
+[node name="Controles" type="Label" parent="Interface" unique_id=1914139249]
+offset_left = 24.0
+offset_top = 50.0
+offset_right = 24.0
+offset_bottom = 50.0
+theme_override_colors/font_outline_color = Color(0.10980392, 0.16078432, 0.23529412, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 16
+text = "A / D ou setas: andar    |    Espaço / seta para cima: pular    |    R: voltar ao início"
+
+[node name="Mensagem" type="Label" parent="Interface" unique_id=108348805]
+offset_left = 24.0
+offset_top = 590.0
+offset_right = 24.0
+offset_bottom = 590.0
+theme_override_colors/font_outline_color = Color(0.10980392, 0.16078432, 0.23529412, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 22
+
+[node name="TempoMensagem" type="Timer" parent="Interface" unique_id=1166248022]
+wait_time = 5.0
+one_shot = true
+
+[node name="PlacaInicio" type="Label" parent="." unique_id=2120480982]
+offset_left = 56.0
+offset_top = 309.0
+offset_right = 56.0
+offset_bottom = 309.0
+theme_override_colors/font_outline_color = Color(0.10980392, 0.16078432, 0.23529412, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 12
+text = "INÍCIO  →"
+
+[node name="SaidaDoTesouro" type="Area2D" parent="." unique_id=65337647 instance=ExtResource("5_ci06v")]
+position = Vector2(544, 384)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_ej2ey")
+destino = "res://cenas/fase_2.tscn"
+titulo = "VOLTAR À NEVE"
+
+[node name="CristalSecreto" type="Area2D" parent="." unique_id=614284232 instance=ExtResource("7_863x4")]
+z_index = 1
+position = Vector2(320, 355)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("8_prm7h")
+mensagem = "Tesouro encontrado! Você descobriu o refúgio de cristal."
+
+[connection signal="timeout" from="Interface/TempoMensagem" to="." method="_on_tempo_mensagem_timeout"]
