@@ -110,7 +110,7 @@ offset_bottom = 50.0
 theme_override_colors/font_outline_color = Color(0.10980392, 0.16078432, 0.23529412, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 16
-text = "A / D ou setas: andar    |    Espaço / seta para cima: pular    |    R: voltar ao início"
+text = "A/D ou setas: andar  |  Espaço/cima: pular (2x)  |  S/baixo: agachar  |  R: reiniciar"
 
 [node name="Mensagem" type="Label" parent="Interface" unique_id=378984678]
 offset_left = 24.0

@@ -39,7 +39,7 @@ func configurar_camera() -> void:
 	camera.limit_left = floori(inicio.x)
 	camera.limit_right = ceili(fim.x)
 	# Acima do tile mais alto, reservamos o espaço do pulo e do personagem.
-	camera.limit_top = floori(inicio.y - altura_pulo - 32.0)
+	camera.limit_top = floori(inicio.y - altura_pulo * jogador.MAX_PULOS - 32.0)
 	camera.limit_bottom = ceili(fim.y)
 	jogador.altura_queda = fim.y + 320.0
 	camera.reset_smoothing()

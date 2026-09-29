@@ -1,6 +1,4 @@
 extends SceneTree
-## Execute com: godot --headless --path . --fixed-fps 60 --script res://testes/verificar_projeto.gd
-## Os percursos usam os mesmos comandos e a mesma física do jogador.
 
 var falhas: int = 0
 var saltos: int = 0
@@ -144,7 +142,6 @@ func executar() -> void:
 		return
 	if not await saltar(1640.0,1776.0,103.0):
 		return
-	# A entrada é atravessada andando, por trás dos tiles sem colisão.
 	if not await andar_ate(1990.0):
 		return
 	if not conferir(not current_scene.has_node("CristalSecreto"), "Cristal não foi coletado"):
