@@ -1,0 +1,203 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://scripts/combate/arena.gd" id="1_g2xws"]
+[ext_resource type="Script" path="res://scripts/fundo_natureza.gd" id="2_j7tdb"]
+[ext_resource type="TileSet" path="res://tilesets/terreno.tres" id="3_3f0sh"]
+[ext_resource type="PackedScene" path="res://cenas/combate/sobrevivente.tscn" id="4_s2fmd"]
+[ext_resource type="Script" path="res://scripts/combate/sobrevivente.gd" id="5_ip2v0"]
+[ext_resource type="PackedScene" path="res://cenas/combate/zumbi_lento.tscn" id="6_u1rmh"]
+[ext_resource type="Script" path="res://scripts/combate/zumbi.gd" id="7_0s7qc"]
+[ext_resource type="PackedScene" path="res://cenas/combate/zumbi_rapido.tscn" id="8_bhbpf"]
+[ext_resource type="PackedScene" path="res://cenas/combate/zumbi_grande.tscn" id="9_xrxuo"]
+[ext_resource type="Script" path="res://scripts/combate/camera.gd" id="10_1imlq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6asf"]
+size = Vector2(16, 800)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbe3p"]
+size = Vector2(16, 800)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tg61"]
+bg_color = Color(0.20392157, 0.27450982, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kakpm"]
+bg_color = Color(0.64705884, 0.84313726, 0.5019608, 1)
+
+[node name="Combate" type="Node2D" unique_id=512339832]
+script = ExtResource("1_g2xws")
+
+[node name="Ceu" type="Polygon2D" parent="." unique_id=344487435]
+color = Color(0.20392157, 0.28627452, 0.32941177, 1)
+polygon = PackedVector2Array(-100, -100, 1100, -100, 1100, 600, -100, 600)
+
+[node name="Montanhas" type="Node2D" parent="." unique_id=1379724823]
+script = ExtResource("2_j7tdb")
+cor = Color(0.24313726, 0.34901962, 0.38039216, 1)
+
+[node name="Bosque" type="Node2D" parent="." unique_id=2138007398]
+script = ExtResource("2_j7tdb")
+tipo = 1
+cor = Color(0.1764706, 0.26666668, 0.2901961, 1)
+
+[node name="Arbustos" type="Node2D" parent="." unique_id=651105241]
+script = ExtResource("2_j7tdb")
+tipo = 2
+cor = Color(0.12941177, 0.21568628, 0.23921569, 1)
+
+[node name="Terreno" type="TileMapLayer" parent="." unique_id=1506098089]
+tile_map_data = PackedByteArray("AAAAABYAAQACAAMAAAAAABcAAQACAAQAAAAAABgAAQACAAQAAAAAABkAAQACAAQAAAAAABoAAQACAAQAAAABABYAAQACAAMAAAABABcAAQACAAQAAAABABgAAQACAAQAAAABABkAAQACAAQAAAABABoAAQACAAQAAAACABYAAQACAAMAAAACABcAAQACAAQAAAACABgAAQACAAQAAAACABkAAQACAAQAAAACABoAAQACAAQAAAADABYAAQACAAMAAAADABcAAQACAAQAAAADABgAAQACAAQAAAADABkAAQACAAQAAAADABoAAQACAAQAAAAEABYAAQACAAMAAAAEABcAAQACAAQAAAAEABgAAQACAAQAAAAEABkAAQACAAQAAAAEABoAAQACAAQAAAAFABYAAQACAAMAAAAFABcAAQACAAQAAAAFABgAAQACAAQAAAAFABkAAQACAAQAAAAFABoAAQACAAQAAAAGABYAAQACAAMAAAAGABcAAQACAAQAAAAGABgAAQACAAQAAAAGABkAAQACAAQAAAAGABoAAQACAAQAAAAHABYAAQACAAMAAAAHABcAAQACAAQAAAAHABgAAQACAAQAAAAHABkAAQACAAQAAAAHABoAAQACAAQAAAAIABYAAQACAAMAAAAIABcAAQACAAQAAAAIABgAAQACAAQAAAAIABkAAQACAAQAAAAIABoAAQACAAQAAAAJABYAAQACAAMAAAAJABcAAQACAAQAAAAJABgAAQACAAQAAAAJABkAAQACAAQAAAAJABoAAQACAAQAAAAKABYAAQACAAMAAAAKABcAAQACAAQAAAAKABgAAQACAAQAAAAKABkAAQACAAQAAAAKABoAAQACAAQAAAALABYAAQACAAMAAAALABcAAQACAAQAAAALABgAAQACAAQAAAALABkAAQACAAQAAAALABoAAQACAAQAAAAMABYAAQACAAMAAAAMABcAAQACAAQAAAAMABgAAQACAAQAAAAMABkAAQACAAQAAAAMABoAAQACAAQAAAANABYAAQACAAMAAAANABcAAQACAAQAAAANABgAAQACAAQAAAANABkAAQACAAQAAAANABoAAQACAAQAAAAOABYAAQACAAMAAAAOABcAAQACAAQAAAAOABgAAQACAAQAAAAOABkAAQACAAQAAAAOABoAAQACAAQAAAAPABYAAQACAAMAAAAPABcAAQACAAQAAAAPABgAAQACAAQAAAAPABkAAQACAAQAAAAPABoAAQACAAQAAAAQABYAAQACAAMAAAAQABcAAQACAAQAAAAQABgAAQACAAQAAAAQABkAAQACAAQAAAAQABoAAQACAAQAAAARABYAAQACAAMAAAARABcAAQACAAQAAAARABgAAQACAAQAAAARABkAAQACAAQAAAARABoAAQACAAQAAAASABYAAQACAAMAAAASABcAAQACAAQAAAASABgAAQACAAQAAAASABkAAQACAAQAAAASABoAAQACAAQAAAATABYAAQACAAMAAAATABcAAQACAAQAAAATABgAAQACAAQAAAATABkAAQACAAQAAAATABoAAQACAAQAAAAUABYAAQACAAMAAAAUABcAAQACAAQAAAAUABgAAQACAAQAAAAUABkAAQACAAQAAAAUABoAAQACAAQAAAAVABYAAQACAAMAAAAVABcAAQACAAQAAAAVABgAAQACAAQAAAAVABkAAQACAAQAAAAVABoAAQACAAQAAAAWABYAAQACAAMAAAAWABcAAQACAAQAAAAWABgAAQACAAQAAAAWABkAAQACAAQAAAAWABoAAQACAAQAAAAXABYAAQACAAMAAAAXABcAAQACAAQAAAAXABgAAQACAAQAAAAXABkAAQACAAQAAAAXABoAAQACAAQAAAAYABYAAQACAAMAAAAYABcAAQACAAQAAAAYABgAAQACAAQAAAAYABkAAQACAAQAAAAYABoAAQACAAQAAAAZABYAAQACAAMAAAAZABcAAQACAAQAAAAZABgAAQACAAQAAAAZABkAAQACAAQAAAAZABoAAQACAAQAAAAaABYAAQACAAMAAAAaABcAAQACAAQAAAAaABgAAQACAAQAAAAaABkAAQACAAQAAAAaABoAAQACAAQAAAAbABYAAQACAAMAAAAbABcAAQACAAQAAAAbABgAAQACAAQAAAAbABkAAQACAAQAAAAbABoAAQACAAQAAAAcABYAAQACAAMAAAAcABcAAQACAAQAAAAcABgAAQACAAQAAAAcABkAAQACAAQAAAAcABoAAQACAAQAAAAdABYAAQACAAMAAAAdABcAAQACAAQAAAAdABgAAQACAAQAAAAdABkAAQACAAQAAAAdABoAAQACAAQAAAAeABYAAQACAAMAAAAeABcAAQACAAQAAAAeABgAAQACAAQAAAAeABkAAQACAAQAAAAeABoAAQACAAQAAAAfABYAAQACAAMAAAAfABcAAQACAAQAAAAfABgAAQACAAQAAAAfABkAAQACAAQAAAAfABoAAQACAAQAAAAgABYAAQACAAMAAAAgABcAAQACAAQAAAAgABgAAQACAAQAAAAgABkAAQACAAQAAAAgABoAAQACAAQAAAAhABYAAQACAAMAAAAhABcAAQACAAQAAAAhABgAAQACAAQAAAAhABkAAQACAAQAAAAhABoAAQACAAQAAAAiABYAAQACAAMAAAAiABcAAQACAAQAAAAiABgAAQACAAQAAAAiABkAAQACAAQAAAAiABoAAQACAAQAAAAjABYAAQACAAMAAAAjABcAAQACAAQAAAAjABgAAQACAAQAAAAjABkAAQACAAQAAAAjABoAAQACAAQAAAAkABYAAQACAAMAAAAkABcAAQACAAQAAAAkABgAAQACAAQAAAAkABkAAQACAAQAAAAkABoAAQACAAQAAAAlABYAAQACAAMAAAAlABcAAQACAAQAAAAlABgAAQACAAQAAAAlABkAAQACAAQAAAAlABoAAQACAAQAAAAmABYAAQACAAMAAAAmABcAAQACAAQAAAAmABgAAQACAAQAAAAmABkAAQACAAQAAAAmABoAAQACAAQAAAAnABYAAQACAAMAAAAnABcAAQACAAQAAAAnABgAAQACAAQAAAAnABkAAQACAAQAAAAnABoAAQACAAQAAAAoABYAAQACAAMAAAAoABcAAQACAAQAAAAoABgAAQACAAQAAAAoABkAAQACAAQAAAAoABoAAQACAAQAAAApABYAAQACAAMAAAApABcAAQACAAQAAAApABgAAQACAAQAAAApABkAAQACAAQAAAApABoAAQACAAQAAAAqABYAAQACAAMAAAAqABcAAQACAAQAAAAqABgAAQACAAQAAAAqABkAAQACAAQAAAAqABoAAQACAAQAAAArABYAAQACAAMAAAArABcAAQACAAQAAAArABgAAQACAAQAAAArABkAAQACAAQAAAArABoAAQACAAQAAAAsABYAAQACAAMAAAAsABcAAQACAAQAAAAsABgAAQACAAQAAAAsABkAAQACAAQAAAAsABoAAQACAAQAAAAtABYAAQACAAMAAAAtABcAAQACAAQAAAAtABgAAQACAAQAAAAtABkAAQACAAQAAAAtABoAAQACAAQAAAAuABYAAQACAAMAAAAuABcAAQACAAQAAAAuABgAAQACAAQAAAAuABkAAQACAAQAAAAuABoAAQACAAQAAAAvABYAAQACAAMAAAAvABcAAQACAAQAAAAvABgAAQACAAQAAAAvABkAAQACAAQAAAAvABoAAQACAAQAAAAwABYAAQACAAMAAAAwABcAAQACAAQAAAAwABgAAQACAAQAAAAwABkAAQACAAQAAAAwABoAAQACAAQAAAAxABYAAQACAAMAAAAxABcAAQACAAQAAAAxABgAAQACAAQAAAAxABkAAQACAAQAAAAxABoAAQACAAQAAAAyABYAAQACAAMAAAAyABcAAQACAAQAAAAyABgAAQACAAQAAAAyABkAAQACAAQAAAAyABoAAQACAAQAAAAzABYAAQACAAMAAAAzABcAAQACAAQAAAAzABgAAQACAAQAAAAzABkAAQACAAQAAAAzABoAAQACAAQAAAA0ABYAAQACAAMAAAA0ABcAAQACAAQAAAA0ABgAAQACAAQAAAA0ABkAAQACAAQAAAA0ABoAAQACAAQAAAA1ABYAAQACAAMAAAA1ABcAAQACAAQAAAA1ABgAAQACAAQAAAA1ABkAAQACAAQAAAA1ABoAAQACAAQAAAA2ABYAAQACAAMAAAA2ABcAAQACAAQAAAA2ABgAAQACAAQAAAA2ABkAAQACAAQAAAA2ABoAAQACAAQAAAA3ABYAAQACAAMAAAA3ABcAAQACAAQAAAA3ABgAAQACAAQAAAA3ABkAAQACAAQAAAA3ABoAAQACAAQAAAA4ABYAAQACAAMAAAA4ABcAAQACAAQAAAA4ABgAAQACAAQAAAA4ABkAAQACAAQAAAA4ABoAAQACAAQAAAA5ABYAAQACAAMAAAA5ABcAAQACAAQAAAA5ABgAAQACAAQAAAA5ABkAAQACAAQAAAA5ABoAAQACAAQAAAA6ABYAAQACAAMAAAA6ABcAAQACAAQAAAA6ABgAAQACAAQAAAA6ABkAAQACAAQAAAA6ABoAAQACAAQAAAA7ABYAAQACAAMAAAA7ABcAAQACAAQAAAA7ABgAAQACAAQAAAA7ABkAAQACAAQAAAA7ABoAAQACAAQAAAAAABIAAQACAAMAAAAAABMAAQACAAQAAAAAABQAAQACAAQAAAAAABUAAQACAAQAAAABABIAAQACAAMAAAABABMAAQACAAQAAAABABQAAQACAAQAAAABABUAAQACAAQAAAA6ABIAAQACAAMAAAA6ABMAAQACAAQAAAA6ABQAAQACAAQAAAA6ABUAAQACAAQAAAA7ABIAAQACAAMAAAA7ABMAAQACAAQAAAA7ABQAAQACAAQAAAA7ABUAAQACAAQAAAA=")
+tile_set = ExtResource("3_3f0sh")
+
+[node name="Limites" type="StaticBody2D" parent="." unique_id=1630100622]
+collision_mask = 0
+
+[node name="Esquerda" type="CollisionShape2D" parent="Limites" unique_id=313093077]
+position = Vector2(-8, 200)
+shape = SubResource("RectangleShape2D_m6asf")
+
+[node name="Direita" type="CollisionShape2D" parent="Limites" unique_id=1161567237]
+position = Vector2(968, 200)
+shape = SubResource("RectangleShape2D_wbe3p")
+
+[node name="Sobrevivente" type="CharacterBody2D" parent="." unique_id=1322506394 groups=["player"] instance=ExtResource("4_s2fmd")]
+position = Vector2(112, 322)
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("5_ip2v0")
+
+[node name="ZumbiLento" type="CharacterBody2D" parent="." unique_id=261938591 groups=["zumbis"] instance=ExtResource("6_u1rmh")]
+position = Vector2(340, 320)
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("7_0s7qc")
+quadro_do_golpe = 5
+
+[node name="ZumbiRapido" type="CharacterBody2D" parent="." unique_id=1877283420 groups=["zumbis"] instance=ExtResource("8_bhbpf")]
+position = Vector2(560, 322)
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("7_0s7qc")
+vida_maxima = 2
+velocidade = 110.0
+distancia_ataque = 52.0
+distancia_visao = 140.0
+intervalo_ataque = 0.6
+quadro_do_golpe = 5
+animacao_movimento = &"run"
+
+[node name="ZumbiGrande" type="CharacterBody2D" parent="." unique_id=1646646102 groups=["zumbis"] instance=ExtResource("9_xrxuo")]
+position = Vector2(790, 320)
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("7_0s7qc")
+vida_maxima = 8
+velocidade = 25.0
+dano = 2
+distancia_ataque = 74.0
+distancia_visao = 120.0
+intervalo_ataque = 2.0
+quadro_do_golpe = 5
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1830839397]
+position = Vector2(288, 250)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 416
+script = ExtResource("10_1imlq")
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=430200224]
+
+[node name="FaixaSuperior" type="ColorRect" parent="Interface" unique_id=1492965335]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 106.0
+mouse_filter = 2
+color = Color(0.055, 0.1, 0.13, 0.9)
+
+[node name="Titulo" type="Label" parent="Interface" unique_id=1146379299]
+offset_left = 24.0
+offset_top = 12.0
+offset_right = 434.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.93333334, 0.9411765, 0.8745098, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.11372549, 0.14901961, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "ARENA DE COMBATE"
+
+[node name="Controles" type="Label" parent="Interface" unique_id=487541285]
+offset_left = 24.0
+offset_top = 69.0
+offset_right = 1124.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0.93333334, 0.9411765, 0.8745098, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.11372549, 0.14901961, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 17
+text = "A/D ou setas: andar   |   Espaço: pular   |   J: atacar   |   R: reiniciar"
+
+[node name="Vida" type="Label" parent="Interface" unique_id=1696883383]
+offset_left = 24.0
+offset_top = 43.0
+offset_right = 169.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.93333334, 0.9411765, 0.8745098, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.11372549, 0.14901961, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "VIDA  5 / 5"
+
+[node name="BarraVida" type="ProgressBar" parent="Interface" unique_id=558769796]
+offset_left = 160.0
+offset_top = 50.0
+offset_right = 310.0
+offset_bottom = 62.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_4tg61")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kakpm")
+show_percentage = false
+
+[node name="Restantes" type="Label" parent="Interface" unique_id=1571787389]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -230.0
+offset_top = 22.0
+offset_right = -24.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.93333334, 0.9411765, 0.8745098, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.11372549, 0.14901961, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "ZUMBIS  3 / 3"
+horizontal_alignment = 2
+
+[node name="Resultado" type="Label" parent="Interface" unique_id=1237245570]
+visible = false
+offset_left = 100.0
+offset_top = 150.0
+offset_right = 1052.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.93333334, 0.9411765, 0.8745098, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.11372549, 0.14901961, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+
+[node name="Dica" type="Label" parent="Interface" unique_id=2136732036]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -42.0
+offset_right = -24.0
+offset_bottom = -12.0
+theme_override_colors/font_color = Color(0.93333334, 0.9411765, 0.8745098, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.11372549, 0.14901961, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 17
+text = "Aproxime-se de um zumbi por vez. Ataque antes que ele alcance você!"
