@@ -10,13 +10,17 @@ config_version=5
 
 [application]
 
-config/name="atividade1"
-run/main_scene="res://cenas/fase_1.tscn"
+config/name="Dois cenários e uma câmara secreta"
+run/main_scene="res://scenes/cenario_1.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=288
+window/size/viewport_height=208
+window/size/window_width_override=1152
+window/size/window_height_override=832
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 

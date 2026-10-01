@@ -1,5 +1,4 @@
 extends Node2D
-## Configura o início, a câmera e o céu de qualquer uma das três cenas.
 
 @export var nome_fase: String = "Fase"
 @export var cor_ceu_base: Color = Color("a9d9dd")
@@ -29,7 +28,6 @@ func _ready() -> void:
 
 
 func configurar_camera() -> void:
-	# O retângulo é calculado com os tiles realmente pintados no Terreno.
 	var area: Rect2i = terreno.get_used_rect()
 	var tamanho: Vector2 = Vector2(terreno.tile_set.tile_size)
 	var inicio: Vector2 = terreno.to_global(Vector2(area.position) * tamanho)
@@ -38,7 +36,6 @@ func configurar_camera() -> void:
 	var altura_pulo: float = jogador.forca_pulo * jogador.forca_pulo / (2.0 * jogador.gravidade)
 	camera.limit_left = floori(inicio.x)
 	camera.limit_right = ceili(fim.x)
-	# Acima do tile mais alto, reservamos o espaço do pulo e do personagem.
 	camera.limit_top = floori(inicio.y - altura_pulo * jogador.MAX_PULOS - 32.0)
 	camera.limit_bottom = ceili(fim.y)
 	jogador.altura_queda = fim.y + 320.0
@@ -49,7 +46,6 @@ func configurar_camera() -> void:
 func _process(_delta: float) -> void:
 	var progresso: float = inverse_lerp(altura_inicio_subida, altura_fim_subida, jogador.global_position.y)
 	ceu.color = cor_ceu_base.lerp(cor_ceu_alto, clampf(progresso, 0.0, 1.0))
-	# As imagens opacas das montanhas também precisam acompanhar a cor do céu.
 	for imagem: Sprite2D in imagens_fundo:
 		imagem.modulate = Color.WHITE.lerp(cor_fundo_alto, clampf(progresso, 0.0, 1.0))
 

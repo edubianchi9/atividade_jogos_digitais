@@ -1,7 +1,5 @@
 @tool
 extends Node2D
-## Silhuetas simples para preencher as três camadas do campo.
-## O desenho mede 1024 pixels: esse é o intervalo de repetição da camada.
 
 @export_enum("Montanhas", "Bosque", "Arbustos") var tipo: int = 0:
 	set(valor):

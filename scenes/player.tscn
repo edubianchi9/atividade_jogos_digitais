@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://cenas/jogador.tscn" id="1"]
+
+[node name="player" groups=["player"] instance=ExtResource("1")]
+altura_queda = 360.0
+
+[node name="Camera2D" parent="." index="2"]
+enabled = false

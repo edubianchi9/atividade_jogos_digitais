@@ -1,0 +1,4 @@
+Print 1 — Cenário 1 rodando no bioma de campo, com três camadas de parallax e decorações sem colisão.
+Print 2 — Personagem encostado na parede da ponta esquerda, que impede sua saída do cenário.
+Print 3 — Personagem no alto da subida do cenário 2, após atravessar as plataformas de sentido único.
+Print 4 — Personagem dentro da câmara secreta, ao lado do portal que retorna ao cenário 1.

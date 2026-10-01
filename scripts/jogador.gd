@@ -116,7 +116,6 @@ func go_to_pulando(aplicar_impulso: bool = true) -> void:
 		pulos_realizados += 1
 		velocity.y = -forca_pulo
 	else:
-		# Ao sair de uma borda, resta um salto de recuperação no ar.
 		pulos_realizados = maxi(pulos_realizados, 1)
 	visual.scale = Vector2(0.85, 1.15) if velocity.y < 0.0 else Vector2(1.1, 0.9)
 

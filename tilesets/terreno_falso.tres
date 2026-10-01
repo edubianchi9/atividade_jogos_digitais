@@ -1,0 +1,10 @@
+[gd_resource type="TileSet" format=3]
+
+[ext_resource type="Texture2D" path="res://imagens/inverno/Terrain (16 x 16).png" id="1_vo8qm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4pfof"]
+texture = ExtResource("1_vo8qm")
+2:4/0 = 0
+
+[resource]
+sources/1 = SubResource("TileSetAtlasSource_4pfof")

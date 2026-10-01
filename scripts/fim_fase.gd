@@ -1,5 +1,4 @@
 extends Area2D
-## Uma única cena de portal, com um destino diferente em cada instância.
 
 @export_file("*.tscn") var destino: String = ""
 @export var titulo: String = "PRÓXIMA FASE"
@@ -21,7 +20,6 @@ func _ao_entrar(body: Node2D) -> void:
 		push_error("Configure uma cena válida na propriedade Destino do portal: " + name)
 		return
 	transicao_iniciada = true
-	# O sinal ocorre durante a física. A troca espera o fim desse processamento.
 	_trocar_fase.call_deferred()
 
 

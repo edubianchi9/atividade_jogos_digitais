@@ -1,0 +1,4 @@
+Escondi a entrada na parede esquerda da câmara, no alto das plataformas do cenário de inverno.
+A pista é uma árvore escura próxima a entrada, diferente das árvores cobertas de neve.
+O personagem atravessa porque ali tem uma abertura no terreno sólido, coberta pelo terrenoFalso, sem física.
+A parede do lado pertence ao terreno com colisão, o Z Index maior do terrenoFalso também oculta o personagem durante a passagem.
